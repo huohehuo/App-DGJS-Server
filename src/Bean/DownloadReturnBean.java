@@ -1,5 +1,7 @@
 package Bean;
 
+import PicServer.ImgAddress;
+
 import java.util.ArrayList;
 
 public class DownloadReturnBean {
@@ -22,6 +24,7 @@ public class DownloadReturnBean {
     public ArrayList<wanglaikemu> wanglaikemu;//������Ŀ
     public ArrayList<PriceMethod> priceMethods;//�۸�����
     public ArrayList<InStorageType> inStorageTypes;
+    public ArrayList<ImgAddress> imgAddresses;
     public int size;
 
     public class InStorageType {

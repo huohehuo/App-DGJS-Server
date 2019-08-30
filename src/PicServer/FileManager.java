@@ -1,6 +1,8 @@
 package PicServer;
 
 
+import Utils.Lg;
+
 import javax.naming.Context;
 import java.io.File;
 import java.util.ArrayList;
@@ -30,18 +32,20 @@ public class FileManager {
         ArrayList<String> imgPaths = new ArrayList<>();
         File directory = new File(dir);
         if (directory == null || !directory.exists()) {
+            Lg.e("directory为空");
             return imgPaths;
         }
         File[] files = directory.listFiles();
         //对文件进行排序
+        Lg.e("files",files);
         if (null==files || files.length<= 0)return imgPaths;
         Arrays.sort(files, new FileComparator());
         for (File file : files) {
             String path = file.getAbsolutePath();
             if (FileManager.isPicFile(path)) {
-                if (path.contains("camera")){
+//                if (path.contains("camera")){
                     imgPaths.add(path);
-                }
+//                }
             }
         }
         return imgPaths;

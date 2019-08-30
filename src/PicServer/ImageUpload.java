@@ -1,7 +1,6 @@
 package PicServer;
 
 import Utils.CommonJson;
-import Utils.Lg;
 import com.google.gson.Gson;
 
 import javax.servlet.ServletException;
@@ -36,7 +35,7 @@ public class ImageUpload extends HttpServlet {
                 System.out.println("读取到：" + bean.bitmapByte.length + " 字节");
                 String fileName = "save.jpg";
                 ImageUtil.writeImageToDisk(bean.bitmapByte, fileName);
-                Lg.e("得到服务端文件夹文件地址：",FileManager.getImgListByDir("C://"));
+//                Lg.e("得到服务端文件夹文件地址：",FileManager.getImgListByDir("E:/FZ-kingdee/FzApp-DG-JSDZ/App-DGJS-Server/out/artifacts/Assist/pic"));
                 writer.write(CommonJson.getCommonJson(true,""));
             }else{
                 System.out.println("没有从该连接获得内容");
