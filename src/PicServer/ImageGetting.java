@@ -34,6 +34,7 @@ public class ImageGetting extends HttpServlet {
         String json = request.getParameter("json");
         String SQL = "";
         String con = "";
+        //先确定下面的Assist服务端电脑的位置，再创建与app端传过来的文件夹名称相对应的文件夹，用于构成服务端完成文件夹地址，用于app端查看服务端该文件夹地址下的图片
         if(json!=null&&!json.equals("")){
             DownloadReturnBean downloadReturnBean = new DownloadReturnBean();
                 downloadReturnBean.imgAddresses = dealPic(FileManager.getImgListByDir("E:/FZ-kingdee/FzApp-DG-JSDZ/App-DGJS-Server/out/artifacts/Assist/"+json));

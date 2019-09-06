@@ -10,10 +10,6 @@ import java.net.URL;
 
 public class ImageUtil {
 
-
-    public static void saveBtye2Img(){
-
-    }
     /**
      * 将图片写入到磁盘
      * @param img 图片数据流
@@ -21,7 +17,12 @@ public class ImageUtil {
      */
     public static void writeImageToDisk(byte[] img, String fileName){
         try {
-            File file = new File("C:\\" + fileName);
+            String fileAddress = "C:/FangZuoPic/";
+            File f = new File(fileAddress);
+            if (!f.exists()) {
+                f.mkdir();
+            }
+            File file = new File(fileAddress + fileName);
             FileOutputStream fops = new FileOutputStream(file);
             fops.write(img);
             fops.flush();

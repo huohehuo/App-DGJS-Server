@@ -1,6 +1,7 @@
 package PicServer;
 
 import Utils.CommonJson;
+import Utils.CommonUtil;
 import com.google.gson.Gson;
 
 import javax.servlet.ServletException;
@@ -33,7 +34,7 @@ public class ImageUpload extends HttpServlet {
             ImageBean bean = new Gson().fromJson(json,ImageBean.class);
             if(null != bean.bitmapByte && bean.bitmapByte.length > 0){
                 System.out.println("读取到：" + bean.bitmapByte.length + " 字节");
-                String fileName = "save.jpg";
+                String fileName = "Detail-"+ CommonUtil.getTimeLong(false)+".jpg";
                 ImageUtil.writeImageToDisk(bean.bitmapByte, fileName);
 //                Lg.e("得到服务端文件夹文件地址：",FileManager.getImgListByDir("E:/FZ-kingdee/FzApp-DG-JSDZ/App-DGJS-Server/out/artifacts/Assist/pic"));
                 writer.write(CommonJson.getCommonJson(true,""));
